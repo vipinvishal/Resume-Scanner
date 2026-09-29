@@ -110,7 +110,7 @@ function Report({report,goto,decision,setDecision,saved,onSave,setDrawer}:{repor
  return <div className="page report-page"><div className="report-main">
   <div className="report-heading"><div><button className="back-link" onClick={()=>goto('dashboard')}>← Back to dashboard</button><span className="eyebrow">LOCAL-REVIEW · Live analysis</span><h2>Evidence-based review</h2><p>Job Match is calculated only from validated requirement findings. ATS Readiness is separate.</p></div><button className="secondary" onClick={()=>window.print()}><Download size={17}/> Print report</button></div>
   <section className="score-grid">
-   <RingScore label="Job Match" value={report.job_match} suffix="/100" note="Deterministic match to this job" color="#4f46e5"/>
+   <RingScore label="Job Match" value={report.job_match} suffix="/100" note="Deterministic match to this job" color="#456bd1"/>
    <RingScore label="Evidence coverage" value={report.evidence_coverage} suffix="%" note="Weighted criteria with evidence" color="#10b981"/>
    <RingScore label="ATS Readiness" value={report.ats_readiness} suffix="/100" note="Document formatting only" color="#f59e0b"/>
   </section>

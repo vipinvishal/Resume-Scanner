@@ -62,6 +62,7 @@ function Hero({ onEnter }: { onEnter: () => void }) {
   const frameRotate = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : 2.5])
   return (
     <section className="land-hero" ref={sectionRef}>
+      <div className="land-hero-mesh" aria-hidden="true" />
       <div className="land-hero-glow" aria-hidden="true" />
       <div className="land-container land-hero-grid">
         <motion.div
@@ -70,8 +71,8 @@ function Hero({ onEnter }: { onEnter: () => void }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: EASE }}
         >
-          <h1>Job Match scores, backed by exact quotes.</h1>
-          <p>Paste a job description, upload one resume, and get a deterministic match score where every finding cites its exact source.</p>
+          <h1>Defensible resume scoring. Not a black box.</h1>
+          <p>Every Job Match score cites the exact resume line that earned it, so you never have to guess.</p>
           <div className="land-hero-actions">
             <motion.button className="primary" onClick={onEnter} {...tap}>Start a review<ArrowRight size={16} /></motion.button>
             <motion.a className="secondary" href="#how-it-works" {...tap}>See how it works</motion.a>
@@ -88,7 +89,7 @@ function Hero({ onEnter }: { onEnter: () => void }) {
           <div className="hero-frame-bar"><span /><span /><span /></div>
           <div className="hero-frame-body">
             <div className="hero-frame-rings">
-              <MiniRing value={82} color="#4f46e5" label="Job Match" />
+              <MiniRing value={82} color="#456bd1" label="Job Match" />
               <MiniRing value={94} color="#f59e0b" label="ATS Readiness" delay={0.15} />
             </div>
             <div className="hero-frame-finding">
@@ -228,7 +229,7 @@ function EvidenceShowcase() {
   return (
     <section className="land-section land-section-narrow" id="evidence">
       <div className="land-container">
-        <h2>Not evidenced means exactly that.</h2>
+        <h2>Not evidenced <span className="accent">means exactly that.</span></h2>
         <p className="land-lede">When a resume does not establish a claim, the report says so directly instead of guessing or penalizing silently.</p>
         <div className="evidence-card">
           <motion.div className="evidence-row" {...reveal(0)}>
@@ -258,11 +259,11 @@ function ScoresDuo() {
   return (
     <section className="land-section land-section-center" id="scoring">
       <div className="land-container">
-        <h2>Two scores, never blended.</h2>
+        <h2>Two scores, <span className="accent">never blended.</span></h2>
         <p className="land-lede">ATS Readiness checks formatting only. Job Match checks the job only. Neither one changes the other, and neither makes the hiring decision.</p>
         <div className="duo-grid">
           <motion.div className="duo-card" {...reveal(0)}>
-            <MiniRing value={82} color="#4f46e5" label="Job Match" size={132} />
+            <MiniRing value={82} color="#456bd1" label="Job Match" size={132} />
             <p>Deterministic match to this job's requirements only.</p>
           </motion.div>
           <motion.div className="duo-card" {...reveal(0.12)}>
